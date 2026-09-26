@@ -1,0 +1,6 @@
+# Pinned on purpose so pip-audit and safety report known advisories.
+# Both pins still install on Python 3.11+.
+# jinja2 3.1.3 is before the 3.1.4 fix for CVE-2024-34064.
+# urllib3 1.26.18 is before the 1.26.19 fix for CVE-2024-37891.
+jinja2==3.1.3
+urllib3==1.26.18
