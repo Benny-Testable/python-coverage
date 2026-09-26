@@ -1,6 +1,6 @@
 """Small billed-price helpers. Tests cover one path so coverage is partial."""
 
-DISCOUNT = 0.10
+DISCOUNT = 0.15
 
 
 def price(amount: float) -> float:
