@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "metric-app"
 version = "0.1.0"
 description = "Python sample that gives every Testable Python whitebox tool something to measure"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.13"
 dependencies = [
     "jinja2==3.1.3",
     "urllib3==1.26.18",
