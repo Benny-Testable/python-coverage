@@ -1,5 +1,6 @@
 # Python metric coverage
 
+# dummy commit 
 Customer-style Python repo for a Testable whitebox run. Point a project at this git repo. The worker detects `pyproject.toml`, plans the Python tools, and each tool has a file that gives it a real signal.
 
 The suite is green on purpose. Cosmic Ray skips mutation scoring when the unmutated tests fail.
