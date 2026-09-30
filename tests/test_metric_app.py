@@ -6,7 +6,7 @@ from metric_app.defs_uses import net
 
 
 def test_price_uses_discount() -> None:
-    assert price(100) == round(100 * (3 - DISCOUNT), 2)
+    assert price(100) == round(100 * (1 - DISCOUNT), 2)
 
 
 def test_tier_priority() -> None:
