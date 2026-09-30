@@ -13,7 +13,7 @@ The suite is green on purpose. Cosmic Ray skips mutation scoring when the unmuta
 | radon, lizard, cognitive-ast, complexipy | `src/metric_app/complexity.py` |
 | jscpd-py | The same `normalize_invoice_lines` body in `duplicate_a.py` and `duplicate_b.py` |
 | bandit, semgrep | `src/metric_app/security_sinks.py` — the patterns in `tools/whitebox/python/semgrep-ruleset.yml` |
-| pip-audit, safety | `requirements.txt` pins `jinja2==3.1.3` and `urllib3==1.26.18` |
+| pip-audit, safety | `pyproject.toml` pins `jinja2==3.1.3` and `urllib3==1.26.18`. There is no `requirements.txt`, so the worker installs this project from `pyproject.toml` |
 | git-churn, pydriller | This git history. `billing.py` is edited across commits |
 | coverage-py, testmon | `tests/test_metric_app.py` via pytest |
 | py-coverage-delta | `.wb/baseline_coverage.json` plus the coverage-py report from the same run |
