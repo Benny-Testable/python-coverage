@@ -1,8 +1,8 @@
 """Green suite. Covers some branches and leaves others open."""
 
-from metric_app.billing import DISCOUNT, price, tier_label
-from metric_app.decisions import eligible, shipping
-from metric_app.defs_uses import net
+from ledgerly.billing import DISCOUNT, price, tier_label
+from ledgerly.decisions import eligible, shipping
+from ledgerly.defs_uses import net
 
 
 def test_price_uses_discount() -> None:
