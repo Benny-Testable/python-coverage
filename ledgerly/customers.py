@@ -36,5 +36,11 @@ class CustomerRegistry:
             grouped.setdefault(customer.region, []).append(customer)
         return grouped
 
+    def open_invoice(self, customer_id: str, items, issued):
+        # imported lazily: invoices imports this module for type hints
+        from ledgerly.invoices import issue_for
+
+        return issue_for(self, customer_id, items, issued)
+
     def __len__(self) -> int:
         return len(self._by_id)

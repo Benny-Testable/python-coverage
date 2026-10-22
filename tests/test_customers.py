@@ -39,3 +39,10 @@ def test_by_region(customer, member):
     assert sorted(grouped) == ["DE", "US"]
     assert grouped["US"] == [customer]
 
+
+def test_open_invoice(customer, items, issued):
+    registry = CustomerRegistry()
+    registry.add(customer)
+    invoice = registry.open_invoice("C-100", items, issued)
+    assert invoice.status == "open"
+    assert invoice.customer_id == "C-100"
