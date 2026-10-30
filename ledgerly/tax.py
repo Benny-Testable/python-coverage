@@ -11,12 +11,13 @@ REGION_RATES = {
     "FR": Decimal("20"),
     "GB": Decimal("20"),
 }
+DEFAULT_RATE = Decimal("10")
 EXEMPT_PREFIX = "EXM-"
 
 
 def rate_for(region: str) -> Decimal:
     """Tax percentage for a region code."""
-    return REGION_RATES[region.upper()]
+    return REGION_RATES.get(region.upper(), DEFAULT_RATE)
 
 
 def tax_for_item(item, region: str) -> Decimal:
