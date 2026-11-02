@@ -35,3 +35,7 @@ def test_percent_of():
 def test_format_money(amount, currency, expected):
     assert format_money(amount, currency) == expected
 
+
+def test_quantize_rounds_halves_up():
+    assert quantize(Decimal("2.675")) == Decimal("2.68")
+    assert quantize(Decimal("0.005")) == Decimal("0.01")

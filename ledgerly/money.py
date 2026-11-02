@@ -1,6 +1,6 @@
 """Decimal money helpers shared by pricing, tax and invoicing."""
 
-from decimal import ROUND_DOWN, Decimal
+from decimal import ROUND_HALF_UP, Decimal
 
 CENT = Decimal("0.01")
 SYMBOLS = {"USD": "$", "EUR": "EUR ", "GBP": "GBP "}
@@ -16,8 +16,8 @@ def to_decimal(value) -> Decimal:
 
 
 def quantize(amount) -> Decimal:
-    """Round an amount to whole cents."""
-    return to_decimal(amount).quantize(CENT, rounding=ROUND_DOWN)
+    """Round an amount to whole cents, halves away from zero."""
+    return to_decimal(amount).quantize(CENT, rounding=ROUND_HALF_UP)
 
 
 def add(*amounts) -> Decimal:
