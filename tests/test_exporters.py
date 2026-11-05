@@ -18,8 +18,7 @@ def test_csv_has_header_and_rows(customer, items, issued):
     text = invoices_to_csv([build_invoice(customer, items, issued)])
     lines = text.splitlines()
     assert lines[0] == "number,customer,issued,due,status,subtotal"
-    assert lines[1].startswith("INV-00001,C-100,2026-01-10,")
-    assert lines[1].endswith(",draft,25.20")
+    assert lines[1] == "INV-00001,C-100,2026-01-10,2026-02-09,draft,25.20"
 
 
 def test_write_csv_returns_row_count(tmp_path, customer, items, issued):

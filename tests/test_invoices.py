@@ -21,8 +21,9 @@ def test_invoice_number_is_zero_padded():
 
 
 def test_due_date_terms(issued):
-    assert due_date(issued, "net15") < due_date(issued)
-    assert due_date(issued) < due_date(issued, "net60")
+    assert due_date(issued, "net15") == date(2026, 1, 25)
+    assert due_date(issued) == date(2026, 2, 9)
+    assert due_date(issued, "net60") == date(2026, 3, 11)
 
 
 def test_build_invoice_requires_items(customer, issued):
@@ -34,7 +35,7 @@ def test_build_invoice_sets_fields(customer, items, issued):
     invoice = build_invoice(customer, items, issued, "net15", sequence=7)
     assert invoice.number == "INV-00007"
     assert invoice.customer_id == "C-100"
-    assert invoice.due > issued
+    assert invoice.due == date(2026, 1, 25)
     assert invoice.status == "draft"
 
 
@@ -77,4 +78,4 @@ def test_issue_for_registry(customer, items, issued):
     registry.add(customer)
     invoice = issue_for(registry, "C-100", items, issued, terms="net60")
     assert invoice.status == "open"
-    assert invoice.due > issued
+    assert invoice.due == date(2026, 3, 11)

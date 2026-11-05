@@ -13,7 +13,7 @@ PAYMENT_TERMS = {"net15": 15, "net30": 30, "net60": 60}
 
 
 def due_date(issued: date, terms: str = "net30") -> date:
-    return issued + timedelta(days=PAYMENT_TERMS[terms] - 1)
+    return issued + timedelta(days=PAYMENT_TERMS[terms])
 
 
 def invoice_number(prefix: str, sequence: int) -> str:
