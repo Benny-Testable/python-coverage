@@ -2,7 +2,7 @@
 
 import re
 
-EMAIL_RE = re.compile(r"^[A-Za-z0-9._-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+$")
+EMAIL_RE = re.compile(r"^[A-Za-z0-9._+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+$")
 PHONE_RE = re.compile(r"^\+?[0-9][0-9 ()-]{6,18}[0-9]$")
 POSTAL_RE = {
     "US": re.compile(r"^\d{5}(-\d{4})?$"),

@@ -13,6 +13,9 @@ def test_invalid_emails(email):
     assert not is_valid_email(email)
 
 
+def test_plus_addressed_email_is_valid():
+    assert is_valid_email("billing+acme@example.com")
+
 
 @pytest.mark.parametrize("phone,ok", [("555-010-0199", True), ("+44 20 7946 0958", True), ("12", False), ("", False), ("abc-defg", False)])
 def test_phone(phone, ok):
