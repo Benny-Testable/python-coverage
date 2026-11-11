@@ -51,6 +51,7 @@ class JsonStore:
         self.path = Path(path)
 
     def save_invoices(self, invoices) -> int:
+        self.path.parent.mkdir(parents=True, exist_ok=True)
         rows = [invoice_to_dict(invoice) for invoice in invoices]
         self.path.write_text(json.dumps(rows, indent=2), encoding="utf-8")
         return len(rows)
@@ -63,6 +64,7 @@ class JsonStore:
 
     def save_customer_names(self, customers) -> None:
         names = {c.customer_id: c.name for c in customers}
+        self.path.parent.mkdir(parents=True, exist_ok=True)
         self.path.write_text(json.dumps(names, sort_keys=True), encoding="utf-8")
 
 
