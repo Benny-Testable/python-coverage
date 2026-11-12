@@ -21,6 +21,10 @@ def test_items_from_csv():
     assert items[0].total() == Decimal("7.50")
 
 
+def test_blank_quantity_cell_is_zero():
+    text = "sku,description,quantity,unit_price\nA-1,Widget,,2.50\n"
+    assert items_from_csv(text)[0].quantity == 0
+
 
 def test_items_from_xml():
     payload = (

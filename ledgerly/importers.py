@@ -28,7 +28,7 @@ def items_from_csv(text: str) -> list:
     for record in csv.DictReader(io.StringIO(text)):
         row = {
             "name": record.get("description"),
-            "qty": record.get("quantity", 0),
+            "qty": record.get("quantity") or 0,
             "price": record.get("unit_price") or 0,
         }
         cleaned = normalize_lines([row])[0]
