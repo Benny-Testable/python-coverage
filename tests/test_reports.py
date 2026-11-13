@@ -8,7 +8,7 @@ from ledgerly.reports import aging_report, bucket_for, cross_check, pair_labels,
 
 @pytest.mark.parametrize(
     "days,label",
-    [(-5, "current"), (0, "current"), (1, "0-30"), (31, "31-60"), (61, "61-90"), (91, "90+")],
+    [(-5, "current"), (0, "current"), (1, "0-30"), (30, "0-30"), (31, "31-60"), (60, "31-60"), (61, "61-90"), (90, "61-90"), (91, "90+")],
 )
 def test_bucket_edges(days, label):
     assert bucket_for(days) == label
@@ -22,6 +22,11 @@ def test_aging_report_skips_paid(customer, items, issued):
     report = aging_report([paid, late, fresh], date(2026, 3, 1))
     assert report == {"current": 1, "0-30": 1, "31-60": 0, "61-90": 0, "90+": 0}
 
+
+def test_thirty_days_overdue_is_in_first_bucket(customer, items, issued):
+    invoice = build_invoice(customer, items, issued)
+    on_day_30 = invoice.due.fromordinal(invoice.due.toordinal() + 30)
+    assert aging_report([invoice], on_day_30)["0-30"] == 1
 
 
 def test_region_bucket_matrix(customer, member, items, issued):

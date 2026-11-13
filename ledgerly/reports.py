@@ -9,7 +9,7 @@ def bucket_for(days_overdue: int) -> str:
     if days_overdue <= 0:
         return "current"
     for label, limit in BUCKETS:
-        if days_overdue < limit:
+        if days_overdue <= limit:
             return label
     return "90+"
 
