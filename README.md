@@ -62,3 +62,5 @@ python -m ledgerly.cli aging --today 2026-06-01
 `ledgerly.gateway` talks to the legacy v1 endpoint and still uses its old checksum scheme;
 the v2 client is planned. Credentials in `ledgerly.settings` are the placeholder values
 from the AWS documentation and must be replaced through the environment in real use.
+
+<!-- dummy commit 2026-11-20T08:18:43Z -->
