@@ -6,7 +6,9 @@ from ledgerly.validators import is_valid_email
 
 class DuplicateCustomer(Exception):
     pass
-
+    
+class DuplicateCustomer(Exception):
+    pass
 
 class CustomerRegistry:
     def __init__(self) -> None:
